@@ -28,7 +28,9 @@ This tech challenge is implemented using the [Clean Architecture](https://blog.c
 
 ## Specification
 
-The specification is written using [OpenAPI](https://swagger.io/specification/) and may be accessed [here](./spec/ecommerce-api.v1.yaml).
+When building an API I like to generate a specification using [OpenAPI](https://swagger.io/specification/) that may be used to shape my thoughts and as a discussion document with other teams / stakeholders. Once a specification has been discussed I find it makes coding easier as I have a goal in mind. I can also use the specification to begin thinking about testing and write integration tests before my code is complete.
+
+The may be accessed [here](./spec/ecommerce-api.v1.yaml).
 
 ### Specification Tooling
 
