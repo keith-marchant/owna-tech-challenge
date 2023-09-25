@@ -1,5 +1,17 @@
 # owna-tech-challenge
 
+- [OWNA Tech Challenge](#owna-tech-challenge)
+  - [Summary](#summary)
+    - [Design Decisions & Issue Log](#design-decisions--issue-log)
+  - [Specification](#specification)
+    - [Specification Tooling](#specification-tooling)
+    - [Specification Mocking](#specification-mocking)
+  - [Testing](#testing)
+  - [Running the solution](#running-the-solution)
+    - [CREATE ORDER](#create-order)
+    - [GET ORDER](#get-order)
+    - [UPDATE ORDER](#update-order)
+
 ## Summary
 
 This tech challenge is implemented using the [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) framework with [Mediatr](https://github.com/jbogard/MediatR) handling communication between layers.
