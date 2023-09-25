@@ -1,5 +1,4 @@
 using FluentAssertions;
-using Moq;
 using OWNA.ECommerce.Application.Commands.CreateOrder;
 using OWNA.ECommerce.Application.Commands.Dtos;
 using OWNA.ECommerce.Application.Interfaces;
