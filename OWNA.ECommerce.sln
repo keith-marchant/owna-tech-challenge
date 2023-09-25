@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{62719063-175D-4895-8026-6B0C3125E6B6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{775F270B-7135-4EFD-982A-7C0A3396269E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "spec", "spec", "{D677B9CB-3319-4F3E-AA66-6435C976F2FC}"
+	ProjectSection(SolutionItems) = preProject
+		spec\ecommerce-api.v1.yaml = spec\ecommerce-api.v1.yaml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OWNA.ECommerce.Api", "src\OWNA.ECommerce.Api\OWNA.ECommerce.Api.csproj", "{DDA5E941-245C-401A-9972-60358EF1C1DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OWNA.ECommerce.Application", "src\OWNA.ECommerce.Application\OWNA.ECommerce.Application.csproj", "{5D01B3E9-9EB2-4F01-8891-F464388DC774}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OWNA.ECommerce.Infrastructure", "src\OWNA.ECommerce.Infrastructure\OWNA.ECommerce.Infrastructure.csproj", "{4E49EDF5-9154-476E-86A8-182113BDFDC6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OWNA.ECommerce.Application.Tests", "test\OWNA.ECommerce.Application.Tests\OWNA.ECommerce.Application.Tests.csproj", "{A23CAA3A-D59B-4EA3-9FD6-F8D4571A3DAF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DDA5E941-245C-401A-9972-60358EF1C1DC} = {62719063-175D-4895-8026-6B0C3125E6B6}
+		{5D01B3E9-9EB2-4F01-8891-F464388DC774} = {62719063-175D-4895-8026-6B0C3125E6B6}
+		{4E49EDF5-9154-476E-86A8-182113BDFDC6} = {62719063-175D-4895-8026-6B0C3125E6B6}
+		{A23CAA3A-D59B-4EA3-9FD6-F8D4571A3DAF} = {775F270B-7135-4EFD-982A-7C0A3396269E}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DDA5E941-245C-401A-9972-60358EF1C1DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDA5E941-245C-401A-9972-60358EF1C1DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDA5E941-245C-401A-9972-60358EF1C1DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDA5E941-245C-401A-9972-60358EF1C1DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D01B3E9-9EB2-4F01-8891-F464388DC774}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D01B3E9-9EB2-4F01-8891-F464388DC774}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D01B3E9-9EB2-4F01-8891-F464388DC774}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D01B3E9-9EB2-4F01-8891-F464388DC774}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E49EDF5-9154-476E-86A8-182113BDFDC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E49EDF5-9154-476E-86A8-182113BDFDC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E49EDF5-9154-476E-86A8-182113BDFDC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E49EDF5-9154-476E-86A8-182113BDFDC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A23CAA3A-D59B-4EA3-9FD6-F8D4571A3DAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A23CAA3A-D59B-4EA3-9FD6-F8D4571A3DAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A23CAA3A-D59B-4EA3-9FD6-F8D4571A3DAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A23CAA3A-D59B-4EA3-9FD6-F8D4571A3DAF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

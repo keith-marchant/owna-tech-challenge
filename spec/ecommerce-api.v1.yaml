@@ -1,0 +1,186 @@
+openapi: 3.0.3
+info:
+  title: OWNA E-Commerce API
+  description: Demonstration API for OWNA tech challenge
+  version: 1.0.0
+servers:
+  - url: https://localhost:4010
+tags:
+  - name: Order
+    description: Provides access to functionality for creating, updating, and reading orders
+paths:
+  /orders:
+    post:
+      summary: Create an order
+      tags:
+        - Order
+      operationId: post-Orders
+      responses:
+        '201':
+          description: Created
+          headers:
+            location:
+              description: Uri describing the order GET resource
+              schema: 
+                type: string
+                format: uri
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/order'
+        '400':
+          $ref: '#/components/responses/badRequest'
+        '500':
+          $ref: '#/components/responses/serverError'
+  /orders/{orderId}:
+    get:
+      summary: Retrieve an order
+      tags:
+        - Order
+      operationId: get-Orders-OrderId
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/order'
+        '404':
+          $ref: '#/components/responses/notFound'
+        '500':
+          $ref: '#/components/responses/serverError'
+    put:
+      summary: Update an order
+      tags:
+        - Order
+      operationId: put-Orders-OrderId
+      description: |
+        Update the properties of an order
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: updateOrderRequest
+              type: object
+              description: |
+                Update model for an order
+              properties:
+                customer:
+                  $ref: '#/components/schemas/customer'
+                product:
+                  $ref: '#/components/schemas/product'
+                status:
+                  $ref: '#/components/schemas/orderStatus'
+      responses:
+        '204':
+          description: No Content
+        '400':
+          $ref: '#/components/responses/badRequest'
+        '404':
+          $ref: '#/components/responses/notFound'
+        '500':
+          $ref: '#/components/responses/serverError'
+          
+components:
+  schemas:
+    customer:
+      type: object
+      properties:
+        name:
+          type: string
+        address:
+          type: string
+        email:
+          type: string
+          format: email
+        phone:
+          type: string
+    product:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        price:
+          type: number
+          format: float
+    orderStatus:
+      type: string
+      enum: [
+        Pending,
+        Processing,
+        Shipped,
+        Delivered
+      ]
+    order:
+      title: Representation of an order
+      type: object
+      properties:
+        orderId:
+          type: string
+          format: uuid
+        customer:
+          $ref: '#/components/schemas/customer'
+        product:
+          $ref: '#/components/schemas/product'
+        status:
+          $ref: '#/components/schemas/orderStatus'
+    error:
+      type: object
+      properties:
+        status:
+          type: integer
+        title:
+          type: string
+        detail:
+          type: string
+        instance:
+          type: string
+        type:
+          type: string
+      required:
+        - status
+        - title
+        - type
+  responses:
+    badRequest:
+      description: Validation of request failed.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/error'
+          example:
+            timestamp: 2022-08-31T13:14:15.000Z
+            type: https://httpstatuses.com/400
+            status: 400
+            title: Bad Request
+            detail: Body must be present and contain field xyz
+            instance: 3fa85f64-5717-4562-b3fc-2c963f66afa6
+    notFound:
+      description: The specified resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/error'
+          example:
+            timestamp: 2022-08-31T13:14:15.000Z
+            type: https://httpstatuses.com/404
+            status: 404
+            title: Not Found
+            detail: Identifier xyz could not be found
+            instance: 3fa85f64-5717-4562-b3fc-2c963f66afa6
+    serverError:
+      description: Unexpected server error.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/error'
+          example:
+            timestamp: 2022-08-31T13:14:15.000Z
+            type: https://httpstatuses.com/500
+            status: 500
+            title: Internal Server Error
+            detail: Something went wrong
+            instance: 3fa85f64-5717-4562-b3fc-2c963f66afa6
+  
