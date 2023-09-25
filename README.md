@@ -8,10 +8,11 @@ This tech challenge is implemented using the [Clean Architecture](https://blog.c
 
 1. This is an API only as I didn't have time to add anything further.
 2. I used a memory cache for persistence (see code in the `Infrastructure` project) and thus records will be lost on restarts.
-3. I ran out of time to implement a mapper so the mapping between `Entities` and `Dtos` is manually done.
-4. I implemented the spec as described in the Word doc but if I were building a site for real I would create different resources for Products, Customers, etc. and then reference them by `Id`.
-5. I ran out of time to add a full test suite but given time I would make sure every business operatrion is covered.
-6. The error messages are not formatting properly to RFC7807 standard
+3. Validation is implemented using FluentValidator and triggered by the mediator pipeline. This keeps it out of the controllers and allows the code to be portable to a new runtime should that be required.
+4. I ran out of time to implement a mapper so the mapping between `Entities` and `Dtos` is manually done.
+5. I implemented the spec as described in the Word doc but if I were building a site for real I would create different resources for Products, Customers, etc. and then reference them by `Id`.
+6. I ran out of time to add a full test suite but given time I would make sure every business operatrion is covered.
+7. The error messages are not formatting properly to RFC7807 standard
 
 ## Specification
 
