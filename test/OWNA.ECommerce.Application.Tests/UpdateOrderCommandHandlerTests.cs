@@ -1,7 +1,9 @@
-﻿using Moq;
+﻿using FluentAssertions;
+using Moq;
 using OWNA.ECommerce.Application.Commands.Dtos;
 using OWNA.ECommerce.Application.Commands.UpdateOrder;
 using OWNA.ECommerce.Application.Entities;
+using OWNA.ECommerce.Application.Exceptions;
 using OWNA.ECommerce.Application.Interfaces;
 using OWNA.ECommerce.Application.Shared.Enums;
 
@@ -30,5 +32,25 @@ public class UpdateOrderCommandHandlerTests
 
         // Assert
         mockRepo.Verify();
+    }
+
+    [Fact]
+    public async Task UpdateOrderCommandHandler_Handle_ThrowsWhenOrderMissing()
+    {
+        // Arrange
+        var orderId = Guid.NewGuid();
+        var command = new UpdateOrderCommand(new CustomerDto("Name", "Address", "Email@Email.com", "04111111111"),
+            new ProductDto("Name", "Description", 1), OrderStatus.Processing);
+        command.OrderId = orderId;
+        var mockRepo = new Mock<IOrderRepository>();
+        mockRepo.Setup(x => x.GetByIdAsync(It.IsAny<Guid>(), It.IsAny<CancellationToken>()))
+            .ReturnsAsync((Order?)null);
+        var handler = new UpdateOrderCommandHandler(mockRepo.Object);
+        
+        // Act
+        var act = () => handler.Handle(command, CancellationToken.None);
+
+        // Assert
+        await act.Should().ThrowAsync<NotFoundException>();
     }
 }
